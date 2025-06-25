@@ -92,7 +92,7 @@ const AdminLogin = () => {
     e.preventDefault();
     setMessage('');
     try {
-      const response = await fetch('https://harshit-backend-18mr.onrender.com/api/auth/login', {
+      const response = await fetch('https://harshit-backend.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json'
@@ -125,7 +125,7 @@ const AdminLogin = () => {
   // Fetch customization data
   const fetchCustomization = async (authToken) => {
     try {
-      const response = await fetch('http://localhost:5000/api/content', {
+      const response = await fetch('https://harshit-backend.onrender.com/api/content', {
         headers: { Authorization: 'Bearer ' + authToken }
       });
       if (response.ok) {
@@ -187,7 +187,7 @@ const AdminLogin = () => {
         marqueeItems: marqueeItems
       };
 
-      const response = await fetch('http://localhost:5000/api/content', {
+      const response = await fetch('https://harshit-backend.onrender.com/api/content', {
         method: 'PUT',  
         headers: { 
           'Content-Type': 'application/json',
@@ -338,7 +338,7 @@ const AdminLogin = () => {
     }
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`http://localhost:5000/api/content/news/${postId}`, {
+      const response = await fetch(`https://harshit-backend.onrender.com/api/content/news/${postId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -397,8 +397,8 @@ const AdminLogin = () => {
     setIsNewsSubmitting(true);
     const token = localStorage.getItem('token');
     const url = editingPostId
-      ? `http://localhost:5000/api/content/news/${editingPostId}`
-      : 'http://localhost:5000/api/content/news';
+      ? `https://harshit-backend.onrender.com/api/content/news/${editingPostId}`
+      : 'https://harshit-backend.onrender.com/api/content/news';
     const method = editingPostId ? 'PUT' : 'POST';
 
     try {
