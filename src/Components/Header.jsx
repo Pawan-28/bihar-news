@@ -128,7 +128,7 @@ const englishMarqueeItems = [
     हर्षित के कलम से
     </span>
     <span className="text-xs sm:text-sm font-medium text-gray-300 tracking-wider group-hover:text-pink-300 transition-colors duration-300">
-      {language === 'hindi' ? 'विचारों की आवाज़' : 'Voice of Thoughts'}
+      {language === 'hindi' ? 'विचारों की अभिव्यक्ति' : 'Voice of Thoughts'}
     </span>
   </div>
 </Link>

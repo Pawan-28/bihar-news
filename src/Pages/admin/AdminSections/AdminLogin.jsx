@@ -24,44 +24,7 @@ const AdminLogin = () => {
   });
 
   const [latestNewsTitle, setLatestNewsTitle] = useState('Latest News');
-  const [latestNewsArticles, setLatestNewsArticles] = useState([
-    {
-      title: 'बिहार: मुख्यमंत्री ने लॉन्च की नई योजना',
-      image: 'https://images.indianexpress.com/2024/01/bihar-1600.jpg',
-      link: '/news/bihar-new-scheme',
-      category: 'बिहार',
-      description: 'बिहार में नई योजना लॉन्च',
-      author: 'हर्षित',
-      date: new Date().toISOString(),
-      location: 'पटना',
-      time: '2 घंटे पहले',
-      views: 1500
-    },
-    {
-      title: 'झारखंड: खनन घोटाले में 3 अधिकारी गिरफ्तार',
-      image: 'https://swarajya.gumlet.io/swarajya/2024-04/40a53b4d-7dc8-4017-8d35-fd3fdd3e08f6/10_04_3.png?w=1200&h=675&auto=format%2Ccompress&fit=max&enlarge=true',
-      link: '/news/jharkhand-mining-scam',
-      category: 'झारखंड',
-      description: 'खनन घोटाले में गिरफ्तारी',
-      author: 'हर्षित',
-      date: new Date().toISOString(),
-      location: 'रांची',
-      time: '5 घंटे पहले',
-      views: 2200
-    },
-    {
-      title: 'पटना मेट्रो में नई सुविधा',
-      image: 'https://thedailyguardian.com/wp-content/uploads/2025/01/political-landscape-in-Bihar.webp',
-      link: '/news/patna-metro',
-      category: 'विकास',
-      description: 'मेट्रो में नई सुविधा',
-      author: 'हर्षित',
-      date: new Date().toISOString(),
-      location: 'पटना',
-      time: '1 घंटे पहले',
-      views: 1800
-    }
-  ]);
+  const [latestNewsArticles, setLatestNewsArticles] = useState([]);
 
   const [featuredArticlesTitle, setFeaturedArticlesTitle] = useState('Featured Articles');
   const [featuredArticles, setFeaturedArticles] = useState([]);
@@ -134,7 +97,7 @@ const AdminLogin = () => {
           const content = data;
           setHeroBanner(content.heroBanner || heroBanner);
           setLatestNewsTitle(content.latestNewsTitle || 'Latest News');
-          setLatestNewsArticles(content.latestNews || latestNewsArticles);
+          setLatestNewsArticles(content.latestNews || []);
           setFeaturedArticlesTitle(content.featuredArticlesTitle || featuredArticlesTitle);
           setFeaturedArticles(content.featuredArticles || []);
           setPhotoGalleryTitle(content.photoGallery?.title || photoGalleryTitle);
@@ -458,27 +421,24 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 md:p-8 overflow-auto space-y-6 md:space-y-8">
-     <div className="text-center">
-  <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-emerald-500 ">Admin Dashboard</h1>
-   <h2 className="text-xl font-semibold text-orange-700">Welcome to Admin Dashboard</h2>
-</div>
-
-       <div className="flex items-center justify-between mb-4">
-    {/* <h2 className="text-xl font-semibold">Welcome to Admin Dashboard</h2> */}
-    <div className="fixed top-40 right-4 z-50">
-  <button
-    onClick={handleSave}
-    className="bg-blue-400 text-white font-bold px-6 py-2 rounded-full hover:bg-blue-700 transition mr-4">
-    Save Changes
-  </button>
-  <button
-    onClick={handleLogout}
-    className="bg-red-500 text-white font-bold px-6 py-2 rounded-full hover:bg-red-700 transition">
-    Logout
-  </button>
-</div>
-
-  </div>
+      <header className="flex flex-col sm:flex-row items-center justify-between mb-6 bg-white p-4 rounded-lg shadow">
+        <div className="text-center sm:text-left mb-4 sm:mb-0">
+          <h1 className="text-2xl md:text-3xl font-bold text-emerald-500 ">Admin Dashboard</h1>
+          <h2 className="text-xl font-semibold text-orange-700">Welcome to Admin Dashboard</h2>
+        </div>
+        <div className="flex items-center space-x-2">
+          <button
+            onClick={handleSave}
+            className="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg">
+            Save Changes
+          </button>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 text-white font-bold px-4 py-2 rounded-lg hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg">
+            Logout
+          </button>
+        </div>
+      </header>
 
       {/* Hero Banner Section */}
       <section className="relative bg-gradient-to-br from-yellow-50 to-white p-0 rounded-xl shadow-lg mt-8 mb-12 border-t-4 border-yellow-500 max-w-2xl mx-auto">
@@ -578,77 +538,81 @@ const AdminLogin = () => {
             placeholder="लेटेस्ट न्यूज़ सेक्शन का शीर्षक"
           />
           <div className="grid grid-cols-1 gap-8">
-            {latestNewsArticles.map((article, index) => (
-              <div key={index} className="bg-pink-50/80 rounded-xl shadow-lg p-6 border border-pink-200 transition-transform duration-300 hover:scale-105">
-                <h3 className="font-bold text-xl mb-4 text-pink-700 flex items-center gap-2 drop-shadow">
-                  <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 text-pink-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 10h16M4 14h16M4 18h16' /></svg>
-                  आर्टिकल {index + 1}
-                </h3>
-                <label className="block font-semibold mb-1 text-pink-900">इमेज URL</label>
-                <input
-                  type="text"
-                  value={article.image}
-                  onChange={(e) => handleUpdateLatestNewsArticle(index, 'image', e.target.value)}
-                  className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
-                  placeholder="https://example.com/image.jpg"
-                />
-                <label className="block font-semibold mb-1 text-pink-900">श्रेणी</label>
-                <select
-                  value={article.category}
-                  onChange={(e) => handleUpdateLatestNewsArticle(index, 'category', e.target.value)}
-                  className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
-                >
-                  <option value="">श्रेणी चुनें</option>
-                  <option value="बिहार">बिहार</option>
-                  <option value="झारखंड">झारखंड</option>
-                  <option value="राजनीति">राजनीति</option>
-                  <option value="अपराध">अपराध</option>
-                  <option value="खेल">खेल</option>
-                  <option value="करियर">करियर</option>
-                  <option value="विकास">विकास</option>
-                  <option value="देश">देश</option>
-                </select>
-                <label className="block font-semibold mb-1 text-pink-900">शीर्षक</label>
-                <input
-                  type="text"
-                  value={article.title}
-                  onChange={(e) => handleUpdateLatestNewsArticle(index, 'title', e.target.value)}
-                  className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
-                  placeholder="समाचार का शीर्षक"
-                />
-                <label className="block font-semibold mb-1 text-pink-900">लिंक</label>
-                <input
-                  type="text"
-                  value={article.link}
-                  onChange={(e) => handleUpdateLatestNewsArticle(index, 'link', e.target.value)}
-                  className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
-                  placeholder="/news/article-link"
-                />
-                <label className="block font-semibold mb-1 text-pink-900">स्थान</label>
-                <input
-                  type="text"
-                  value={article.location}
-                  onChange={(e) => handleUpdateLatestNewsArticle(index, 'location', e.target.value)}
-                  className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
-                  placeholder="पटना"
-                />
-                <label className="block font-semibold mb-1 text-pink-900">समय</label>
-                <input
-                  type="text"
-                  value={article.time}
-                  onChange={(e) => handleUpdateLatestNewsArticle(index, 'time', e.target.value)}
-                  className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
-                  placeholder="2 घंटे पहले"
-                />
-                <button
-                  onClick={() => handleRemoveLatestNewsArticle(index)}
-                  type="button"
-                  className="bg-red-500 text-white px-3 py-1 rounded-lg font-semibold shadow hover:bg-red-700 hover:scale-105 transition mt-2"
-                >
-                  हटाएं
-                </button>
-              </div>
-            ))}
+            {latestNewsArticles && latestNewsArticles.length > 0 ? (
+              latestNewsArticles.map((article, index) => (
+                <div key={index} className="bg-pink-50/80 rounded-xl shadow-lg p-6 border border-pink-200 transition-transform duration-300 hover:scale-105">
+                  <h3 className="font-bold text-xl mb-4 text-pink-700 flex items-center gap-2 drop-shadow">
+                    <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 text-pink-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 10h16M4 14h16M4 18h16' /></svg>
+                    आर्टिकल {index + 1}
+                  </h3>
+                  <label className="block font-semibold mb-1 text-pink-900">इमेज URL</label>
+                  <input
+                    type="text"
+                    value={article.image}
+                    onChange={(e) => handleUpdateLatestNewsArticle(index, 'image', e.target.value)}
+                    className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
+                    placeholder="https://example.com/image.jpg"
+                  />
+                  <label className="block font-semibold mb-1 text-pink-900">श्रेणी</label>
+                  <select
+                    value={article.category}
+                    onChange={(e) => handleUpdateLatestNewsArticle(index, 'category', e.target.value)}
+                    className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
+                  >
+                    <option value="">श्रेणी चुनें</option>
+                    <option value="बिहार">बिहार</option>
+                    <option value="झारखंड">झारखंड</option>
+                    <option value="राजनीति">राजनीति</option>
+                    <option value="अपराध">अपराध</option>
+                    <option value="खेल">खेल</option>
+                    <option value="करियर">करियर</option>
+                    <option value="विकास">विकास</option>
+                    <option value="देश">देश</option>
+                  </select>
+                  <label className="block font-semibold mb-1 text-pink-900">शीर्षक</label>
+                  <input
+                    type="text"
+                    value={article.title}
+                    onChange={(e) => handleUpdateLatestNewsArticle(index, 'title', e.target.value)}
+                    className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
+                    placeholder="समाचार का शीर्षक"
+                  />
+                  <label className="block font-semibold mb-1 text-pink-900">लिंक</label>
+                  <input
+                    type="text"
+                    value={article.link}
+                    onChange={(e) => handleUpdateLatestNewsArticle(index, 'link', e.target.value)}
+                    className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
+                    placeholder="/news/article-link"
+                  />
+                  <label className="block font-semibold mb-1 text-pink-900">स्थान</label>
+                  <input
+                    type="text"
+                    value={article.location}
+                    onChange={(e) => handleUpdateLatestNewsArticle(index, 'location', e.target.value)}
+                    className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
+                    placeholder="पटना"
+                  />
+                  <label className="block font-semibold mb-1 text-pink-900">समय</label>
+                  <input
+                    type="text"
+                    value={article.time}
+                    onChange={(e) => handleUpdateLatestNewsArticle(index, 'time', e.target.value)}
+                    className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
+                    placeholder="2 घंटे पहले"
+                  />
+                  <button
+                    onClick={() => handleRemoveLatestNewsArticle(index)}
+                    type="button"
+                    className="bg-red-500 text-white px-3 py-1 rounded-lg font-semibold shadow hover:bg-red-700 hover:scale-105 transition mt-2"
+                  >
+                    हटाएं
+                  </button>
+                </div>
+              ))
+            ) : (
+              <p className="text-center text-gray-500 col-span-1">इस सेक्शन में कोई आर्टिकल नहीं है। जोड़ने के लिए नीचे दिए गए बटन पर क्लिक करें।</p>
+            )}
             <button
               onClick={handleAddLatestNewsArticle}
               type="button"
