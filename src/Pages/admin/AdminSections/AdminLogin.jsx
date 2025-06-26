@@ -92,7 +92,7 @@ const AdminLogin = () => {
     e.preventDefault();
     setMessage('');
     try {
-      const response = await fetch('https://harshit-backend.onrender.com/api/auth/login', {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json'
@@ -125,7 +125,7 @@ const AdminLogin = () => {
   // Fetch customization data
   const fetchCustomization = async (authToken) => {
     try {
-      const response = await fetch('https://harshit-backend.onrender.com/api/content', {
+      const response = await fetch('http://localhost:5000/api/content', {
         headers: { Authorization: 'Bearer ' + authToken }
       });
       if (response.ok) {
@@ -187,7 +187,7 @@ const AdminLogin = () => {
         marqueeItems: marqueeItems
       };
 
-      const response = await fetch('https://harshit-backend.onrender.com/api/content', {
+      const response = await fetch('http://localhost:5000/api/content', {
         method: 'PUT',  
         headers: { 
           'Content-Type': 'application/json',
@@ -338,7 +338,7 @@ const AdminLogin = () => {
     }
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`https://harshit-backend.onrender.com/api/content/news/${postId}`, {
+      const response = await fetch(`http://localhost:5000/api/content/news/${postId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -397,8 +397,8 @@ const AdminLogin = () => {
     setIsNewsSubmitting(true);
     const token = localStorage.getItem('token');
     const url = editingPostId
-      ? `https://harshit-backend.onrender.com/api/content/news/${editingPostId}`
-      : 'https://harshit-backend.onrender.com/api/content/news';
+      ? `http://localhost:5000/api/content/news/${editingPostId}`
+      : 'http://localhost:5000/api/content/news';
     const method = editingPostId ? 'PUT' : 'POST';
 
     try {
@@ -458,27 +458,33 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 md:p-8 overflow-auto space-y-6 md:space-y-8">
-     <div className="text-center">
-  <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-emerald-500 ">Admin Dashboard</h1>
-   <h2 className="text-xl font-semibold text-orange-700">Welcome to Admin Dashboard</h2>
-</div>
-
-       <div className="flex items-center justify-between mb-4">
-    {/* <h2 className="text-xl font-semibold">Welcome to Admin Dashboard</h2> */}
-    <div className="fixed top-40 right-4 z-50">
-  <button
-    onClick={handleSave}
-    className="bg-blue-400 text-white font-bold px-6 py-2 rounded-full hover:bg-blue-700 transition mr-4">
-    Save Changes
-  </button>
-  <button
-    onClick={handleLogout}
-    className="bg-red-500 text-white font-bold px-6 py-2 rounded-full hover:bg-red-700 transition">
-    Logout
-  </button>
-</div>
-
-  </div>
+     <div className="w-full max-w-2xl mx-auto mb-6">
+      <div className="bg-gradient-to-r from-emerald-400 via-yellow-200 to-orange-200 rounded-2xl shadow-lg p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t-4 border-emerald-500 relative">
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <div className="flex items-center gap-2 mb-1">
+            <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 11c0-1.104.896-2 2-2s2 .896 2 2-.896 2-2 2-2-.896-2-2-2z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h2l2-2h2l2 2h2a2 2 0 012 2v12a2 2 0 01-2 2z" /></svg>
+            <h1 className="text-2xl md:text-3xl font-bold text-emerald-700 drop-shadow">Admin Dashboard</h1>
+          </div>
+          <h2 className="text-lg md:text-xl font-semibold text-orange-700">Welcome to Admin Dashboard</h2>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 sm:mt-0 items-center justify-center">
+          <button
+            onClick={handleSave}
+            className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold px-6 py-2 rounded-full shadow-md hover:from-blue-600 hover:to-blue-800 hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+            Save Changes
+          </button>
+          <button
+            onClick={handleLogout}
+            className="w-full sm:w-auto bg-gradient-to-r from-red-500 to-red-700 text-white font-bold px-6 py-2 rounded-full shadow-md hover:from-red-600 hover:to-red-800 hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" /></svg>
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
 
       {/* Hero Banner Section */}
       <section className="relative bg-gradient-to-br from-yellow-50 to-white p-0 rounded-xl shadow-lg mt-8 mb-12 border-t-4 border-yellow-500 max-w-2xl mx-auto">
@@ -904,8 +910,8 @@ const AdminLogin = () => {
           </div> */}
         </div>
       </section>
-{/* 
-      <button
+
+      {/* <button
         onClick={handleSave}
         className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
       >
