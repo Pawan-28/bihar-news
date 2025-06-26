@@ -125,7 +125,7 @@ const englishMarqueeItems = [
 
   <div className="flex flex-col leading-tight">
     <span className="text-lg sm:text-xl font-extrabold text-white tracking-tight group-hover:text-yellow-300 transition-colors duration-300">
-      हर्षित के माइक से
+    हर्षित के कलम से
     </span>
     <span className="text-xs sm:text-sm font-medium text-gray-300 tracking-wider group-hover:text-pink-300 transition-colors duration-300">
       {language === 'hindi' ? 'विचारों की आवाज़' : 'Voice of Thoughts'}

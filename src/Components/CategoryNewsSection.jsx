@@ -55,47 +55,55 @@ const CategoryNewsSection = ({ category, posts }) => {
                     {post.heading}
                   </h3>
                   <p className="text-gray-700 mb-4 line-clamp-3 text-base leading-relaxed">{post.news}</p>
-                  {/* Share Buttons Row */}
-                  <div className="flex items-center gap-4 mb-2 mt-1">
+                  {/* Share Buttons Row - Custom SVGs */}
+                  <div className="flex gap-4 mb-2 mt-1">
                     {/* WhatsApp */}
                     <a
                       href={`https://wa.me/?text=${encodeURIComponent(post.heading + '\n' + window.location.href)}`}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="bg-white ring-2 ring-green-500 rounded-full shadow-md p-2 hover:scale-110 transition"
                       title="WhatsApp पर शेयर करें"
-                      className="bg-white ring-2 ring-green-500 text-green-600 hover:bg-green-50 p-2 rounded-full shadow-md transition-all duration-200 hover:scale-110"
                     >
-                      <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A12.07 12.07 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.62A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52zM12 22c-1.77 0-3.5-.46-5.01-1.33l-.36-.21-3.69.96.99-3.59-.23-.37A9.94 9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.6c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.28.7.9.86 1.08.16.18.32.2.6.07.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.36-.01-.56-.01-.19 0-.5.07-.76.34-.26.27-1 1-.97 2.43.03 1.43 1.03 2.81 1.18 3.01.15.2 2.03 3.1 4.93 4.23.69.3 1.23.48 1.65.61.69.22 1.32.19 1.81.12.55-.08 1.65-.67 1.89-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-7 h-7 text-green-600" viewBox="0 0 24 24">
+                        <path d="M20.52 3.48A11.86 11.86 0 0012 0a11.86 11.86 0 00-8.52 3.48A11.86 11.86 0 000 12a11.77 11.77 0 001.56 5.91L0 24l6.27-1.64A11.86 11.86 0 0012 24a11.86 11.86 0 008.52-3.48A11.86 11.86 0 0024 12a11.86 11.86 0 00-3.48-8.52zM12 22a9.93 9.93 0 01-5.07-1.39l-.36-.22-3.73 1 1-3.64-.24-.38A9.92 9.92 0 012 12a10 10 0 012.93-7.07A10 10 0 0112 2a10 10 0 017.07 2.93A10 10 0 0122 12a10 10 0 01-2.93 7.07A10 10 0 0112 22zm5.26-7.11c-.29-.14-1.72-.85-1.99-.94s-.47-.14-.67.14-.76.94-.94 1.13-.35.21-.64.07a8.09 8.09 0 01-2.36-1.45 8.89 8.89 0 01-1.66-2.06c-.17-.29 0-.44.13-.58s.29-.35.43-.52.19-.29.29-.48a.55.55 0 00-.03-.52c-.08-.14-.67-1.61-.92-2.2s-.49-.51-.67-.52H8c-.17 0-.44.06-.67.29a2.82 2.82 0 00-.88 2.1 4.9 4.9 0 001.03 2.52 11.09 11.09 0 004.14 3.85A13.6 13.6 0 0014.73 17c.61-.08 1.19-.42 1.34-.83s.17-.77.13-.85-.13-.13-.27-.21z"/>
+                      </svg>
+                    </a>
+                    {/* Instagram */}
+                    <a
+                      href="https://instagram.com/yourid"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white ring-2 ring-pink-500 rounded-full shadow-md p-2 hover:scale-110 transition"
+                      title="Instagram पर शेयर करें"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-7 h-7 text-pink-500" viewBox="0 0 24 24">
+                        <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5A3.75 3.75 0 0020 16.25v-8.5A3.75 3.75 0 0016.25 4h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm4.5-.25a1.25 1.25 0 112.5 0 1.25 1.25 0 01-2.5 0z"/>
+                      </svg>
                     </a>
                     {/* Facebook */}
                     <a
                       href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(post.heading)}`}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="bg-white ring-2 ring-blue-600 rounded-full shadow-md p-2 hover:scale-110 transition"
                       title="Facebook पर शेयर करें"
-                      className="bg-white ring-2 ring-blue-600 text-blue-700 hover:bg-blue-50 p-2 rounded-full shadow-md transition-all duration-200 hover:scale-110"
                     >
-                      <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24H12.82v-9.294H9.692v-3.622h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-7 h-7 text-blue-700" viewBox="0 0 24 24">
+                        <path d="M22.675 0h-21.35C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.326 24H12.82v-9.294H9.692v-3.622h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.733 0 1.326-.593 1.326-1.326V1.326C24 .593 23.407 0 22.675 0z"/>
+                      </svg>
                     </a>
                     {/* Gmail */}
                     <a
                       href={`mailto:?subject=${encodeURIComponent(post.heading)}&body=${encodeURIComponent(post.news + '\n' + window.location.href)}`}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="bg-white ring-2 ring-red-500 rounded-full shadow-md p-2 hover:scale-110 transition"
                       title="Gmail से भेजें"
-                      className="bg-white ring-2 ring-red-500 text-red-600 hover:bg-red-50 p-2 rounded-full shadow-md transition-all duration-200 hover:scale-110"
                     >
-                      <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 13.065L2.4 6.6V18c0 1.104.896 2 2 2h15.2c1.104 0 2-.896 2-2V6.6l-9.6 6.465zm9.6-9.6H2.4c-1.104 0-2 .896-2 2v.8l11.6 7.8 11.6-7.8v-.8c0-1.104-.896-2-2-2z"/></svg>
-                    </a>
-                    {/* Instagram (just link to Instagram, as direct share is not supported) */}
-                    <a
-                      href="https://www.instagram.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Instagram पर शेयर करें (कॉपी करें)"
-                      className="bg-white ring-2 ring-pink-500 text-pink-600 hover:bg-pink-50 p-2 rounded-full shadow-md transition-all duration-200 hover:scale-110"
-                    >
-                      <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.515 2.567 5.782 2.295 7.148 2.233 8.414 2.175 8.794 2.163 12 2.163zm0-2.163C8.741 0 8.332.012 7.052.07 5.771.128 4.659.334 3.678 1.315c-.98.98-1.187 2.092-1.245 3.373C2.012 5.668 2 6.077 2 12c0 5.923.012 6.332.07 7.612.058 1.281.265 2.393 1.245 3.373.98.98 2.092 1.187 3.373 1.245C8.332 23.988 8.741 24 12 24s3.668-.012 4.948-.07c1.281-.058 2.393-.265 3.373-1.245.98-.98 1.187-2.092 1.245-3.373.058-1.28.07-1.689.07-7.612 0-5.923-.012-6.332-.07-7.612-.058-1.281-.265-2.393-1.245-3.373-.98-.98-2.092-1.187-3.373-1.245C15.668.012 15.259 0 12 0zm0 5.838A6.162 6.162 0 0 0 5.838 12 6.162 6.162 0 0 0 12 18.162 6.162 6.162 0 0 0 18.162 12 6.162 6.162 0 0 0 12 5.838zm0 10.162A3.999 3.999 0 1 1 12 8a3.999 3.999 0 0 1 0 7.999zm6.406-11.845a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-7 h-7 text-red-600" viewBox="0 0 24 24">
+                        <path d="M20 4H4C2.897 4 2 4.897 2 6v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 5.333-8-5.333V6h16zM4 18V8.489l7.445 4.963a1 1 0 001.11 0L20 8.489V18H4z"/>
+                      </svg>
                     </a>
                   </div>
                 </div>
