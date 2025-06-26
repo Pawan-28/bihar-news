@@ -506,15 +506,57 @@ const AdminLogin = () => {
             placeholder="बिहार और झारखंड की ताज़ा खबरें"
           />
           <div className="mb-4">
-            <label className="block font-semibold mb-2 text-yellow-900">इमेज (URL)</label>
-            <input
-              type="text"
-              value={heroBanner.images[0] || ''}
-              onChange={(e) => setHeroBanner({ ...heroBanner, images: [e.target.value] })}
-              className="w-full px-4 py-2 border-2 border-yellow-200 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-white text-gray-800"
-              placeholder="Image URL"
-            />
+            <label className="block font-semibold mb-2 text-yellow-900">इमेजेज (URL, एक से अधिक)</label>
+            {heroBanner.images && heroBanner.images.length > 0 ? heroBanner.images.map((image, index) => (
+              <div key={index} className="flex items-center space-x-2 mb-2">
+                <input
+                  type="text"
+                  value={image}
+                  onChange={(e) => handleUpdateHeroBannerImage(index, e.target.value)}
+                  className="flex-1 px-4 py-2 border-2 border-yellow-200 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-white text-gray-800"
+                  placeholder="Image URL"
+                />
+                <button
+                  onClick={() => handleRemoveHeroBannerImage(index)}
+                  type="button"
+                  className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition"
+                >
+                  हटाएं
+                </button>
+              </div>
+            )) : (
+              <p className="text-yellow-700">कोई इमेज नहीं जोड़ी गई।</p>
+            )}
+            <button
+              onClick={handleAddHeroBannerImage}
+              type="button"
+              className="mt-2 bg-yellow-600 text-white px-4 py-2 rounded-lg font-semibold shadow hover:bg-yellow-700 transition"
+            >
+              + इमेज जोड़ें
+            </button>
           </div>
+          {/* <div className="flex space-x-4">
+            <div className="flex-1">
+              <label className="block font-semibold mb-2 text-yellow-900">बटन 1 टेक्स्ट</label>
+              <input
+                type="text"
+                value={heroBanner.button1Text}
+                onChange={(e) => setHeroBanner({ ...heroBanner, button1Text: e.target.value })}
+                className="w-full px-4 py-2 border-2 border-yellow-200 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-white text-gray-800"
+                placeholder="ताज़ा खबरें पढ़ें"
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block font-semibold mb-2 text-yellow-900">बटन 2 टेक्स्ट</label>
+              <input
+                type="text"
+                value={heroBanner.button2Text}
+                onChange={(e) => setHeroBanner({ ...heroBanner, button2Text: e.target.value })}
+                className="w-full px-4 py-2 border-2 border-yellow-200 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-white text-gray-800"
+                placeholder="वीडियो देखें"
+              />
+            </div>
+          </div> */}
         </div>
       </section>
 
@@ -536,7 +578,7 @@ const AdminLogin = () => {
             placeholder="लेटेस्ट न्यूज़ सेक्शन का शीर्षक"
           />
           <div className="grid grid-cols-1 gap-8">
-            {latestNewsArticles.slice(0, 3).map((article, index) => (
+            {latestNewsArticles.map((article, index) => (
               <div key={index} className="bg-pink-50/80 rounded-xl shadow-lg p-6 border border-pink-200 transition-transform duration-300 hover:scale-105">
                 <h3 className="font-bold text-xl mb-4 text-pink-700 flex items-center gap-2 drop-shadow">
                   <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 text-pink-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 10h16M4 14h16M4 18h16' /></svg>
@@ -598,26 +640,22 @@ const AdminLogin = () => {
                   className="w-full px-4 py-2 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-pink-400 bg-white text-gray-800 mb-2 shadow-sm"
                   placeholder="2 घंटे पहले"
                 />
-                {latestNewsArticles.length > 1 && (
-                  <button
-                    onClick={() => handleRemoveLatestNewsArticle(index)}
-                    type="button"
-                    className="bg-red-500 text-white px-3 py-1 rounded-lg font-semibold shadow hover:bg-red-700 hover:scale-105 transition mt-2"
-                  >
-                    हटाएं
-                  </button>
-                )}
+                <button
+                  onClick={() => handleRemoveLatestNewsArticle(index)}
+                  type="button"
+                  className="bg-red-500 text-white px-3 py-1 rounded-lg font-semibold shadow hover:bg-red-700 hover:scale-105 transition mt-2"
+                >
+                  हटाएं
+                </button>
               </div>
             ))}
-            {latestNewsArticles.length < 3 && (
-              <button
-                onClick={handleAddLatestNewsArticle}
-                type="button"
-                className="mt-2 bg-gradient-to-r from-pink-500 to-pink-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:from-pink-600 hover:to-pink-800 hover:scale-105 transition"
-              >
-                + आर्टिकल जोड़ें
-              </button>
-            )}
+            <button
+              onClick={handleAddLatestNewsArticle}
+              type="button"
+              className="mt-2 bg-gradient-to-r from-pink-500 to-pink-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:from-pink-600 hover:to-pink-800 hover:scale-105 transition"
+            >
+              + आर्टिकल जोड़ें
+            </button>
           </div>
         </div>
       </section>
@@ -640,17 +678,33 @@ const AdminLogin = () => {
             placeholder="वीडियो न्यूज़ सेक्शन का शीर्षक"
           />
           <div className="grid grid-cols-1 gap-8">
-            <div className="bg-red-50/80 rounded-xl shadow-lg p-6 border border-red-200 transition-transform duration-300 hover:scale-105">
-              <label className="block font-semibold mb-1 text-red-900">YouTube वीडियो URL</label>
-              <input
-                type="text"
-                value={videos[0] || ''}
-                onChange={(e) => setVideos([e.target.value])}
-                className="w-full px-4 py-2 border-2 border-red-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-red-400 bg-white text-gray-800 mb-2 shadow-sm"
-                placeholder="https://youtu.be/VIDEO_ID"
-              />
-              <p className="text-sm text-gray-600 mb-2">उदाहरण: https://youtu.be/dQw4w9WgXcQ</p>
-            </div>
+            {videos.map((video, index) => (
+              <div key={index} className="bg-red-50/80 rounded-xl shadow-lg p-6 border border-red-200 transition-transform duration-300 hover:scale-105">
+                <label className="block font-semibold mb-1 text-red-900">YouTube वीडियो URL</label>
+                <input
+                  type="text"
+                  value={video}
+                  onChange={(e) => handleUpdateVideo(index, e.target.value)}
+                  className="w-full px-4 py-2 border-2 border-red-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-red-400 bg-white text-gray-800 mb-2 shadow-sm"
+                  placeholder="https://youtu.be/VIDEO_ID"
+                />
+                <p className="text-sm text-gray-600 mb-2">उदाहरण: https://youtu.be/dQw4w9WgXcQ</p>
+                <button
+                  onClick={() => handleRemoveVideo(index)}
+                  type="button"
+                  className="bg-red-500 text-white px-3 py-1 rounded-lg font-semibold shadow hover:bg-red-700 hover:scale-105 transition mt-2"
+                >
+                  हटाएं
+                </button>
+              </div>
+            ))}
+            <button
+              onClick={handleAddVideo}
+              type="button"
+              className="mt-2 bg-gradient-to-r from-red-500 to-red-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:from-red-600 hover:to-red-800 hover:scale-105 transition"
+            >
+              + वीडियो जोड़ें
+            </button>
           </div>
         </div>
       </section>
@@ -850,8 +904,8 @@ const AdminLogin = () => {
           </div> */}
         </div>
       </section>
-
-      {/* <button
+{/* 
+      <button
         onClick={handleSave}
         className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
       >
