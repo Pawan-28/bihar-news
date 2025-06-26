@@ -59,7 +59,7 @@ const CategoryNewsSection = ({ category, posts }) => {
                   <div className="flex gap-4 mb-2 mt-1">
                     {/* WhatsApp */}
                     <a
-                      href={`https://wa.me/?text=${encodeURIComponent(post.heading + '\n' + window.location.href)}`}
+                      href={`https://wa.me/?text=${encodeURIComponent(post.heading + '\n' + (post.image ? post.image + '\n' : '') + window.location.href)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-white ring-2 ring-green-500 rounded-full shadow-md p-2 hover:scale-110 transition"
@@ -83,7 +83,7 @@ const CategoryNewsSection = ({ category, posts }) => {
                     </a>
                     {/* Facebook */}
                     <a
-                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(post.heading)}`}
+                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(post.heading + (post.image ? '\n' + post.image : ''))}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-white ring-2 ring-blue-600 rounded-full shadow-md p-2 hover:scale-110 transition"
@@ -95,7 +95,7 @@ const CategoryNewsSection = ({ category, posts }) => {
                     </a>
                     {/* Gmail */}
                     <a
-                      href={`mailto:?subject=${encodeURIComponent(post.heading)}&body=${encodeURIComponent(post.news + '\n' + window.location.href)}`}
+                      href={`mailto:?subject=${encodeURIComponent(post.heading)}&body=${encodeURIComponent((post.image ? post.image + '\n' : '') + post.news + '\n' + window.location.href)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-white ring-2 ring-red-500 rounded-full shadow-md p-2 hover:scale-110 transition"

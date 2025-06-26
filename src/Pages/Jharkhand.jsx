@@ -55,7 +55,7 @@ const Jharkhand = () => {
       <div className="max-w-6xl mx-auto">
       <div className="mb-6 text-center">
           <span className="inline-block bg-green-50 text-green-800 text-lg md:text-xl font-semibold px-6 py-2 rounded-full shadow-sm border border-green-200 tracking-wide">
-            Harshit ke Kalam Se Jharkhand Samachar Padhiye
+            हर्षित की कलम से झारखंड समाचार पढ़िए
           </span>
         </div>
         {/* Crime News Section */}
