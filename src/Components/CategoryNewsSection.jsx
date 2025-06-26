@@ -62,7 +62,7 @@ const CategoryNewsSection = ({ category, posts }) => {
                     <div className="flex gap-4 mb-2 mt-1">
                       {/* WhatsApp */}
                       <a
-                        href={`https://wa.me/?text=${encodeURIComponent(post.heading + '\n' + shortDesc + '\n' + (post.image ? post.image + '\n' : '') + newsUrl)}`}
+                        href={`https://wa.me/?text=${encodeURIComponent(post.heading + '\n' + shortDesc + '\n' + newsUrl)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-white ring-2 ring-green-500 rounded-full shadow-md p-2 hover:scale-110 transition"
@@ -86,7 +86,7 @@ const CategoryNewsSection = ({ category, posts }) => {
                       </a>
                       {/* Facebook */}
                       <a
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(newsUrl)}&quote=${encodeURIComponent(post.heading + '\n' + shortDesc + (post.image ? '\n' + post.image : ''))}`}
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(newsUrl)}&quote=${encodeURIComponent(post.heading + '\n' + shortDesc)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-white ring-2 ring-blue-600 rounded-full shadow-md p-2 hover:scale-110 transition"
@@ -98,7 +98,7 @@ const CategoryNewsSection = ({ category, posts }) => {
                       </a>
                       {/* Gmail */}
                       <a
-                        href={`mailto:?subject=${encodeURIComponent(post.heading)}&body=${encodeURIComponent(shortDesc + '\n' + (post.image ? post.image + '\n' : '') + newsUrl)}`}
+                        href={`mailto:?subject=${encodeURIComponent(post.heading)}&body=${encodeURIComponent(shortDesc + '\n' + newsUrl)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-white ring-2 ring-red-500 rounded-full shadow-md p-2 hover:scale-110 transition"
