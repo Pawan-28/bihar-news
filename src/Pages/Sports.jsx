@@ -95,7 +95,7 @@ const Sports = () => {
     <div className="max-w-6xl mx-auto p-5 font-sans">
       <div className="mb-6 text-center">
         <span className="inline-block bg-yellow-50 text-yellow-800 text-lg md:text-xl font-semibold px-6 py-2 rounded-full shadow-sm border border-yellow-200 tracking-wide">
-          हर्षित की कलम से खेल समाचार पढ़िए
+          हर्षित के कलम से खेल समाचार पढ़िए
         </span>
       </div>
       <CategoryNewsSection category="खेल" posts={sortedPosts} />
