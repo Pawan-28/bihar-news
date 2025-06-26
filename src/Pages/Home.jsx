@@ -326,9 +326,9 @@ const Home = () => {
                 {categoryPosts.length > 0 ? (
                   <>
                     {categoryPosts.map((post, idx) => {
-                      const imageUrl = post.image?.startsWith('https://')
+                      const imageUrl = post.image?.startsWith('http')
                         ? post.image
-                        : 'https://via.placeholder.com/300x200';
+                        : `${window.location.origin}${post.image}`;
 
                       return (
                         <div
