@@ -609,6 +609,15 @@ const AdminLogin = () => {
                 )}
               </div>
             ))}
+            {latestNewsArticles.length < 3 && (
+              <button
+                onClick={handleAddLatestNewsArticle}
+                type="button"
+                className="mt-2 bg-gradient-to-r from-pink-500 to-pink-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:from-pink-600 hover:to-pink-800 hover:scale-105 transition"
+              >
+                + आर्टिकल जोड़ें
+              </button>
+            )}
           </div>
         </div>
       </section>
