@@ -4,14 +4,14 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaEnvelope, FaPhone, Fa
 const Footer = ({ footerLogoParts, footerDescription, footerContactInfo, footerQuickLinksCategories }) => {
   const brandName = "Harshit ke Kalam se";
   const contactInfo = footerContactInfo || { 
-    email: 'harshit@kalamse.com', 
-    phone: '+91 98765 43210', 
+    email: 'Harshitkr@gmail.com', 
+    phone: '+91 80905 41266', 
     address: 'Creative Corner, Noida, India' 
   };
   
   const currentYear = new Date().getFullYear();
   const socialLinks = [
-    { icon: <FaFacebookF size={16} />, url: "https://www.facebook.com/profile.php?id=61576543783204&sk=about", color: "hover:bg-[#1877F2]" },
+    { icon: <FaFacebookF size={16} />, url: "https://www.facebook.com/harsita.ke.kalama.se/", color: "hover:bg-[#1877F2]" },
     { icon: <FaTwitter size={16} />, url: "https://twitter.com", color: "hover:bg-[#1DA1F2]" },
     { icon: <FaInstagram size={16} />, url: "https://instagram.com", color: "hover:bg-gradient-to-tr from-[#833AB4] via-[#E1306C] to-[#FCAF45]" },
     { icon: <FaYoutube size={16} />, url: "https://youtube.com", color: "hover:bg-[#FF0000]" }
@@ -24,12 +24,16 @@ const Footer = ({ footerLogoParts, footerDescription, footerContactInfo, footerQ
           {/* Brand Column */}
           <div className="space-y-5 md:space-y-6">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="bg-gradient-to-br from-indigo-600 via-pink-500 to-yellow-400 w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-xl">✍️</span>
+              <div className="relative w-14 h-14 rounded-full overflow-hidden shadow-lg flex items-center justify-center bg-white">
+                <img
+                  src="/kalam.png"
+                  alt="Mic Icon"
+                  className="w-12 h-12 object-contain rounded-full"
+                />
               </div>
               <div>
                 <h2 className="text-lg sm:text-xl font-black text-white group-hover:text-yellow-400 transition-colors duration-300 tracking-tight">
-                  {brandName}
+                  Harshit ke Kalam se
                 </h2>
                 <p className="text-xs font-semibold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
                   {footerDescription || 'Thoughts that resonate'}
@@ -78,14 +82,20 @@ const Footer = ({ footerLogoParts, footerDescription, footerContactInfo, footerQ
           <div className="space-y-5 md:space-y-6">
             <h3 className="text-base sm:text-lg font-bold text-white border-l-4 border-pink-500 pl-3 py-1">Categories</h3>
             <ul className="space-y-2 md:space-y-3">
-              {['Politics', 'Business', 'Technology', 'Entertainment', 'Sports', 'Health'].map((item, index) => (
+              {[
+                { name: 'बिहार', path: '/bihar' },
+                { name: 'झारखंड', path: '/jharkhand' },
+                { name: 'राजनीति', path: '/politics' },
+                { name: 'जुर्म', path: '/crime' },
+                { name: 'खेल', path: '/sports' }
+              ].map((item, index) => (
                 <li key={index}>
                   <Link 
-                    to={`/category/${item.toLowerCase()}`} 
+                    to={item.path}
                     className="flex items-center gap-2 text-gray-400 hover:text-pink-400 transition-colors duration-300 group text-sm sm:text-base"
                   >
                     <span className="w-2 h-2 bg-pink-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    <span>{item}</span>
+                    <span>{item.name}</span>
                   </Link>
                 </li>
               ))}

@@ -112,23 +112,27 @@ const englishMarqueeItems = [
         <div className="container max-w-[1350px] mx-auto px-6 py-2 flex items-center justify-between">
           {/* Logo */}
           <Link
-            to="/"
-            className="group flex items-center space-x-2 transition-all duration-300 hover:scale-105"
-          >
-            <div className="relative">
-              <div className="bg-gradient-to-br from-yellow-400 via-pink-500 to-indigo-600 text-white font-bold text-lg px-2.5 py-1.5 rounded-full shadow-lg group-hover:rotate-12 transition-transform duration-300">
-                ✍️
-              </div>
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-lg sm:text-xl font-extrabold text-white tracking-tight group-hover:text-yellow-300 transition-colors duration-300">
-                Harshit ke Kalam se
-              </span>
-              <span className="text-xs sm:text-sm font-medium text-gray-300 tracking-wider group-hover:text-pink-300 transition-colors duration-300">
-                {language === 'hindi' ? 'विचारों की अभिव्यक्ति' : 'Unleashing Thoughts'}
-              </span>
-            </div>
-          </Link>
+  to="/"
+  className="group flex items-center space-x-2 transition-all duration-300 hover:scale-105"
+>
+<div className="relative w-16 h-16 rounded-full overflow-hidden shadow-lg group-hover:rotate-6 transition-transform duration-300 flex items-center justify-center">
+  <img
+    src="/kalam.png"
+    alt="Mic Icon"
+    className="w-14 h-14 object-contain rounded-full"
+  />
+</div>
+
+  <div className="flex flex-col leading-tight">
+    <span className="text-lg sm:text-xl font-extrabold text-white tracking-tight group-hover:text-yellow-300 transition-colors duration-300">
+      हर्षित के माइक से
+    </span>
+    <span className="text-xs sm:text-sm font-medium text-gray-300 tracking-wider group-hover:text-pink-300 transition-colors duration-300">
+      {language === 'hindi' ? 'विचारों की आवाज़' : 'Voice of Thoughts'}
+    </span>
+  </div>
+</Link>
+
 
           {/* Desktop Navigation - Full Width with Scroll */}
           <div className="hidden md:flex flex-1 overflow-x-auto scrollbar-hide ml-6">

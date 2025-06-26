@@ -1,6 +1,6 @@
 const API_CONFIG = {
     development: {
-      baseUrl: 'https://harshit-backend.onrender.com/api', // local backend
+      baseUrl: 'http://localhost:5000/api', // local backend
     },
     production: {
       baseUrl: 'https://harshit-ke-kalam-se.onrender.com/api', // deployed backend
