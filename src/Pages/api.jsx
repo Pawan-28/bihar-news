@@ -1,6 +1,6 @@
 const API_CONFIG = {
     development: {
-      baseUrl: 'http://localhost:5000'
+      baseUrl: 'https://harshit-backend-18mr.onrender.com'
     },
     production: {
       baseUrl: 'https://harshit-ke-kalam-se.onrender.com/'  // 🔁 yahi actual render URL daalo
