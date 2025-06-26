@@ -117,7 +117,7 @@ const englishMarqueeItems = [
 >
 <div className="relative w-16 h-16 rounded-full overflow-hidden shadow-lg group-hover:rotate-6 transition-transform duration-300 flex items-center justify-center">
   <img
-    src="/kalam.png"
+    src="/kalam.jpg"
     alt="Mic Icon"
     className="w-14 h-14 object-contain rounded-full"
   />
@@ -128,7 +128,7 @@ const englishMarqueeItems = [
     हर्षित के कलम से
     </span>
     <span className="text-xs sm:text-sm font-medium text-gray-300 tracking-wider group-hover:text-pink-300 transition-colors duration-300">
-      {language === 'hindi' ? 'विचारों की अभिव्यक्ति' : 'Voice of Thoughts'}
+      {language === 'hindi' ? 'हर्षित के कलम से' : 'Voice of Thoughts'}
     </span>
   </div>
 </Link>

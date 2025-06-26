@@ -26,23 +26,23 @@ const Footer = ({ footerLogoParts, footerDescription, footerContactInfo, footerQ
             <Link to="/" className="flex items-center gap-3 group">
               <div className="relative w-14 h-14 rounded-full overflow-hidden shadow-lg flex items-center justify-center bg-white">
                 <img
-                  src="/kalam.png"
+                  src="/kalam.jpg"
                   alt="Mic Icon"
                   className="w-12 h-12 object-contain rounded-full"
                 />
               </div>
               <div>
                 <h2 className="text-lg sm:text-xl font-black text-white group-hover:text-yellow-400 transition-colors duration-300 tracking-tight">
-                  Harshit ke Kalam se
+                हर्षित के कलम से
                 </h2>
                 <p className="text-xs font-semibold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500">
-                  {footerDescription || 'Thoughts that resonate'}
+                  {footerDescription || 'आपका मुद्दा हमारी आवाज'}
                 </p>
               </div>
             </Link>
             
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-              Delivering profound thoughts and stories. Dive deep into reflections, insights, and creative expressions from Harshit ke Kalam se.
+            गहन विचार और मुद्दा प्रस्तुत करना। हर्षित के कलम से चिंतन, अंतर्दृष्टि और रचनात्मक अभिव्यक्तियों में गहराई से उतरें।
             </p>
             
             <div className="flex space-x-3">
