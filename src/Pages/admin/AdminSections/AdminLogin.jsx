@@ -92,7 +92,7 @@ const AdminLogin = () => {
     e.preventDefault();
     setMessage('');
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch('https://harshit-backend-18mr.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json'
@@ -125,7 +125,7 @@ const AdminLogin = () => {
   // Fetch customization data
   const fetchCustomization = async (authToken) => {
     try {
-      const response = await fetch('http://localhost:5000/api/content', {
+      const response = await fetch('https://harshit-backend-18mr.onrender.com/api/content', {
         headers: { Authorization: 'Bearer ' + authToken }
       });
       if (response.ok) {
@@ -187,7 +187,7 @@ const AdminLogin = () => {
         marqueeItems: marqueeItems
       };
 
-      const response = await fetch('http://localhost:5000/api/content', {
+      const response = await fetch('https://harshit-backend-18mr.onrender.com/api/content', {
         method: 'PUT',  
         headers: { 
           'Content-Type': 'application/json',
@@ -338,7 +338,7 @@ const AdminLogin = () => {
     }
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`http://localhost:5000/api/content/news/${postId}`, {
+      const response = await fetch(`https://harshit-backend-18mr.onrender.com/api/content/news/${postId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -397,8 +397,8 @@ const AdminLogin = () => {
     setIsNewsSubmitting(true);
     const token = localStorage.getItem('token');
     const url = editingPostId
-      ? `http://localhost:5000/api/content/news/${editingPostId}`
-      : 'http://localhost:5000/api/content/news';
+      ? `https://harshit-backend-18mr.onrender.com/api/content/news/${editingPostId}`
+      : 'https://harshit-backend-18mr.onrender.com/api/content/news';
     const method = editingPostId ? 'PUT' : 'POST';
 
     try {
@@ -467,7 +467,7 @@ const AdminLogin = () => {
           </div>
           <h2 className="text-lg md:text-xl font-semibold text-orange-700">Welcome to Admin Dashboard</h2>
         </div>
-        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 sm:mt-0 items-center justify-center">
+        {/* <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 sm:mt-0 items-center justify-center">
           <button
             onClick={handleSave}
             className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold px-6 py-2 rounded-full shadow-md hover:from-blue-600 hover:to-blue-800 hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
@@ -482,9 +482,30 @@ const AdminLogin = () => {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" /></svg>
             Logout
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
+    <div className="fixed top-20 right-8 z-50 flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-center justify-center">
+  <button
+    onClick={handleSave}
+    className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold px-6 py-2 rounded-full shadow-md hover:from-blue-600 hover:to-blue-800 hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+  >
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+    Save Changes
+  </button>
+
+  <button
+    onClick={handleLogout}
+    className="w-full sm:w-auto bg-gradient-to-r from-red-500 to-red-700 text-white font-bold px-6 py-2 rounded-full shadow-md hover:from-red-600 hover:to-red-800 hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+  >
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+    </svg>
+    Logout
+  </button>
+</div>
 
       {/* Hero Banner Section */}
       <section className="relative bg-gradient-to-br from-yellow-50 to-white p-0 rounded-xl shadow-lg mt-8 mb-12 border-t-4 border-yellow-500 max-w-2xl mx-auto">
