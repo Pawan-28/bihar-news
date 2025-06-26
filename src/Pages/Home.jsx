@@ -11,7 +11,20 @@ const Home = () => {
       try {
         const response = await fetch('https://harshit-backend-18mr.onrender.com/api/content/public');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const data = await response.json();
+        let data;
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          try {
+            data = await response.json();
+          } catch (jsonError) {
+            console.error('JSON parse error:', jsonError);
+            throw new Error('Invalid JSON from server');
+          }
+        } else {
+          const text = await response.text();
+          console.error('Non-JSON response:', text);
+          throw new Error('Server did not return JSON');
+        }
         console.log('Fetched content data:', data);
         console.log('News Posts from Backend:', data.newsPosts);
         setContent(data);
