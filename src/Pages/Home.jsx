@@ -291,7 +291,7 @@ const Home = () => {
                 <div className="text-center">
                   <h3 className="font-bold text-lg text-gray-500">विज्ञापन</h3>
                   <p className="text-gray-500 mt-2">अपना विज्ञापन यहां प्रदर्शित करें।</p>
-                  <a href="https://wa.me/91090541266?text=HELLO%20SIR" className="mt-4 inline-block bg-blue-500 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors">
+                  <a href="https://wa.me/918090541266?text=HELLO%20SIR" className="mt-4 inline-block bg-blue-500 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors">
                     संपर्क करें
                   </a>
                 </div>
