@@ -18,7 +18,7 @@ const ArticlePage = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`${API_URL}/api/customization`);
+        const response = await fetch('https://harshit-backend-18mr.onrender.com/api/news/' + id);
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

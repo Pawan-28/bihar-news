@@ -19,6 +19,7 @@ const badgeColors = {
 
 const CategoryNewsSection = ({ category, posts }) => {
   const [modalPost, setModalPost] = useState(null);
+  
   // Filter posts for this category
   const categoryPosts = posts?.filter(post => post.category === category) || [];
   const borderColor = borderColors[category] || 'border-blue-600';
