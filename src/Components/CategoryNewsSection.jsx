@@ -37,7 +37,7 @@ const CategoryNewsSection = ({ category, posts }) => {
         {categoryPosts.length > 0 ? (
           categoryPosts.map((post, idx) => {
             const shortDesc = post.news ? post.news.slice(0, 120) + '...' : '';
-            const newsUrl = `${window.location.origin}/news/${post._id || ''}`;
+            const newsUrl = `https://harshit-ka-kalam-se.netlify.app/news/${post._id || ''}`;
             return (
               <div
                 key={idx}

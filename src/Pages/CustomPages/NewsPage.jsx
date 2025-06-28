@@ -21,13 +21,15 @@ const NewsPage = () => {
   if (error) return <div>Error: {error}</div>;
   if (!article) return <div>Loading...</div>;
 
-  const newsUrl = `${window.location.origin}/news/${id}`;
+  const newsUrl = `https://harshit-ka-kalam-se.netlify.app/news/${id}`;
   const shortDescription = article.news ? article.news.slice(0, 160) + '...' : '';
   
-  // Ensure image URL is absolute
+  // Ensure image URL is absolute and uses production domain
   const imageUrl = article.image && article.image.startsWith('http') 
     ? article.image 
-    : `${window.location.origin}${article.image}`;
+    : article.image && article.image.startsWith('/')
+    ? `https://harshit-ka-kalam-se.netlify.app${article.image}`
+    : `https://harshit-ka-kalam-se.netlify.app/news.png`; // fallback image
 
   console.log('NewsPage Meta Tags:', {
     title: article.heading,
