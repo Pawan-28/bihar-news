@@ -62,7 +62,7 @@ export const validateImageUrl = (imageUrl) => {
 
 // Function to ensure image URL is absolute
 export const makeImageUrlAbsolute = (imageUrl, baseUrl = 'https://harshit-ka-kalam-se.netlify.app') => {
-  if (!imageUrl) return `${baseUrl}/news.png`;
+  if (!imageUrl) return `${baseUrl}/favicon.png`;
   
   // If it's already an absolute URL, return as is
   if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {

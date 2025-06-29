@@ -8,7 +8,7 @@ export const updateMetaTags = (article) => {
   // Default fallback values
   const title = article.title || 'हर्षित के कलम से - ताज़ा समाचार';
   const description = article.content || article.description || 'बिहार और झारखंड की ताज़ा खबरें, राजनीति, अपराध, खेल और अन्य महत्वपूर्ण समाचार।';
-  const imageUrl = article.image || article.imageUrl || `${baseUrl}/news.png`;
+  const imageUrl = article.image || article.imageUrl || `${baseUrl}/favicon.png`;
   
   // Update Open Graph meta tags
   updateMetaTag('og:title', title);
@@ -66,13 +66,13 @@ export const resetMetaTags = () => {
   
   updateMetaTag('og:title', 'हर्षित के कलम से - ताज़ा समाचार और विश्लेषण');
   updateMetaTag('og:description', 'बिहार और झारखंड की ताज़ा खबरें, राजनीति, अपराध, खेल और अन्य महत्वपूर्ण समाचार। हर्षित के कलम से सटीक और विश्वसनीय जानकारी।');
-  updateMetaTag('og:image', `${baseUrl}/news.png`);
+  updateMetaTag('og:image', `${baseUrl}/favicon.png`);
   updateMetaTag('og:url', baseUrl);
   updateMetaTag('og:type', 'website');
   
   updateMetaTag('twitter:title', 'हर्षित के कलम से - ताज़ा समाचार और विश्लेषण');
   updateMetaTag('twitter:description', 'बिहार और झारखंड की ताज़ा खबरें, राजनीति, अपराध, खेल और अन्य महत्वपूर्ण समाचार।');
-  updateMetaTag('twitter:image', `${baseUrl}/news.png`);
+  updateMetaTag('twitter:image', `${baseUrl}/favicon.png`);
   
   document.title = 'हर्षित के कलम से - ताज़ा समाचार और विश्लेषण';
   updateMetaTag('canonical', baseUrl);
