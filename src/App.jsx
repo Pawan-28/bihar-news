@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import AppRoutes from './routes'
-import ScrollToTop from './Components/ScrollToTop'
+// import ScrollToTop from './Components/ScrollToTop'
 
 // Static content data
 const staticContent = {
@@ -85,7 +85,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Header navbarCategories={fixedNavbarCategories} />
       <AppRoutes />
       <Footer />

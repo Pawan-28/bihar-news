@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { makeImageUrlAbsolute } from '../../utils/testMetaTags';
-import ShareDebugger from '../../Components/ShareDebugger';
 
 const NewsPage = () => {
   const { id } = useParams();
@@ -26,7 +24,15 @@ const NewsPage = () => {
   const newsUrl = `https://harshit-ka-kalam-se.netlify.app/news/${id}`;
   const shortDescription = article.news ? article.news.slice(0, 160) + '...' : '';
   
-  // Ensure image URL is absolute and uses production domain
+  // Ensure image URL is absolute
+  const makeImageUrlAbsolute = (imageUrl) => {
+    if (!imageUrl) return 'https://harshit-ka-kalam-se.netlify.app/favicon.png';
+    if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+      return imageUrl;
+    }
+    return `https://harshit-ka-kalam-se.netlify.app${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+  };
+  
   const imageUrl = makeImageUrlAbsolute(article.image);
 
   console.log('NewsPage Meta Tags:', {
@@ -104,9 +110,6 @@ const NewsPage = () => {
           </article>
         </div>
       </div>
-      
-      {/* Share Debugger for testing */}
-      <ShareDebugger article={article} />
     </>
   );
 };
