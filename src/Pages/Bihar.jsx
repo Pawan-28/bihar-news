@@ -9,7 +9,7 @@ const Bihar = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/content/public');
+        const response = await fetch('https://bihar-backend.onrender.com/api/content/public');
         // const url = 'http://localhost:5000/api/content/public';
         // const response = await fetch(url);
         
