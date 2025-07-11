@@ -56,7 +56,7 @@ const Footer = ({ footerLogoParts, footerDescription, footerContactInfo, footerQ
             </Link>
             
             <p className="text-white text-xs sm:text-sm leading-relaxed">
-            गहन विचार और मुद्दा प्रस्तुत करना। हर्षित के कलम से चिंतन, अंतर्दृष्टि और रचनात्मक अभिव्यक्तियों में गहराई से उतरें।
+            गहन विचार और मुद्दा प्रस्तुत करना।  अंतर्दृष्टि और रचनात्मक अभिव्यक्तियों में गहराई से उतरें।
             </p>
             
             <div className="flex space-x-2 mt-1">
