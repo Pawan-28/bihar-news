@@ -40,8 +40,8 @@ const ContentEditor = () => {
       setIsLoading(true);
       const token = localStorage.getItem('token');
       const endpoint = contentType === 'news' 
-        ? `https://harshit-backend-18mr.onrender.com/api/news/${id}`
-        : `https://harshit-backend-18mr.onrender.com/api/content/${contentType}/${id}`;
+        ? `http://localhost:5000/api/news/${id}`
+        : `http://localhost:5000/api/content/${contentType}/${id}`;
 
       const response = await axios.get(endpoint, {
         headers: { 'Authorization': `Bearer ${token}` }
@@ -94,16 +94,16 @@ const ContentEditor = () => {
       if (id) {
         // Update existing content
         const endpoint = contentType === 'news'
-          ? `https://harshit-backend-18mr.onrender.com/api/news/${id}`
-          : `https://harshit-backend-18mr.onrender.com/api/content/${contentType}/${id}`;
+          ? `http://localhost:5000/api/news/${id}`
+          : `http://localhost:5000/api/content/${contentType}/${id}`;
         
         await axios.put(endpoint, formData, config);
         setMessage('Content updated successfully!');
       } else {
         // Create new content
         const endpoint = contentType === 'news'
-          ? 'https://harshit-backend-18mr.onrender.com/api/news'
-          : `https://harshit-backend-18mr.onrender.com/api/content/${contentType}`;
+          ? 'http://localhost:5000/api/news'
+          : `http://localhost:5000/api/content/${contentType}`;
       
         await axios.post(endpoint, formData, config);
         setMessage('Content created successfully!');

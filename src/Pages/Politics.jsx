@@ -18,7 +18,7 @@ const Politics = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await fetch('https://harshit-backend-18mr.onrender.com/api/content/public');
+        const response = await fetch('http://localhost:5000/api/content/public');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
         setContent(data);
@@ -63,8 +63,8 @@ const Politics = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto p-5">
         <div className="mb-6 text-center">
-          <span className="inline-block bg-purple-50 text-purple-800 text-lg md:text-xl font-semibold px-6 py-2 rounded-full shadow-sm border border-purple-200 tracking-wide">
-            हर्षित के कलम से राजनीति समाचार पढ़िए
+          <span className="inline-block bg-gradient-to-r from-purple-100 via-purple-50 to-purple-200 text-purple-900 text-lg md:text-xl font-bold px-6 py-2 rounded-full shadow-md border border-purple-100 tracking-wide">
+            राजनीति की ताज़ा और विश्वसनीय खबरें यहाँ पढ़ें
           </span>
         </div>
         <CategoryNewsSection category="राजनीति" posts={sortedPosts} />

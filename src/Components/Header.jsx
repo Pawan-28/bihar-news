@@ -40,14 +40,14 @@ const Header = () => {
   };
 
   const hindiMarqueeItems = [
-    "हर्षित के कलम से",
-    "विचारों की अभिव्यक्ति",
-    "हर्षित के कलम से",
-    "विचारों की अभिव्यक्ति",
-    "हर्षित के कलम से",
-    "विचारों की अभिव्यक्ति",
-    "हर्षित के कलम से",
-    "विचारों की अभिव्यक्ति",
+    "न्यूज़ बिहार 24/7: हर खबर, हर समय",
+    "आपके मुद्दे, हमारी आवाज़ - न्यूज़ बिहार 24/7",
+    "बिहार-झारखंड की सबसे तेज़ खबरें",
+    "24 घंटे, 7 दिन - सिर्फ सच्ची खबरें",
+    "न्यूज़ बिहार 24/7: आपकी नज़र, हमारी खबर",
+    "हर पल की ताज़ा अपडेट - न्यूज़ बिहार 24/7",
+    "बिहार की धड़कन, झारखंड की आवाज़",
+    "सच्ची, निष्पक्ष, सबसे पहले - न्यूज़ बिहार 24/7"
   ];
 const englishMarqueeItems = [
     "Harshit ke Kalam se",
@@ -62,7 +62,7 @@ const englishMarqueeItems = [
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md notranslate">
+    <header className="bg-gradient-to-r from-[#141e30] to-[#243b55] text-white sticky top-0 z-50 shadow-md notranslate">
       {/* Compact Language Toggle */}
      
       <div className="bg-gradient-to-r from-gray-900 to-black text-gray-200 text-xs py-1.5">
@@ -108,31 +108,44 @@ const englishMarqueeItems = [
       </div>
 
       {/* Main Navigation */}
-      <nav className="bg-gradient-to-r from-indigo-800 via-red-700 to-indigo-800 text-white">
-        <div className="container max-w-[1350px] mx-auto px-6 py-2 flex items-center justify-between">
+      <nav className="bg-gradient-to-r from-[#141e30] to-[#243b55] text-white shadow-lg border-b-2 border-blue-900">
+        <div className="container max-w-[1350px] mx-auto px-4 py-1 flex items-center justify-between min-h-[60px]">
           {/* Logo */}
           <Link
-  to="/"
-  className="group flex items-center space-x-2 transition-all duration-300 hover:scale-105"
->
-<div className="relative w-16 h-16 rounded-full overflow-hidden shadow-lg group-hover:rotate-6 transition-transform duration-300 flex items-center justify-center">
-  <img
-    src="/kalam.jpg"
-    alt="Mic Icon"
-    className="w-14 h-14 object-contain rounded-full"
-  />
-</div>
-
-  <div className="flex flex-col leading-tight">
-    <span className="text-lg sm:text-xl font-extrabold text-white tracking-tight group-hover:text-yellow-300 transition-colors duration-300">
-    हर्षित के कलम से
-    </span>
-    <span className="text-xs sm:text-sm font-medium text-gray-300 tracking-wider group-hover:text-pink-300 transition-colors duration-300">
-      {language === 'hindi' ? 'आपका मुद्दा हमारी आवाज' : 'Voice of Thoughts'}
-    </span>
-  </div>
-</Link>
-
+            to="/"
+            className="group flex items-center space-x-2 transition-all duration-300 hover:scale-105"
+          >
+            {/* Compact Decorated News Bihar 24/7 Logo SVG */}
+            <div className="relative w-14 h-14 flex items-center justify-center">
+              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="logoBg" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="0%" stopColor="#fff"/>
+                    <stop offset="100%" stopColor="#f59e42"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="28" cy="28" r="25" fill="url(#logoBg)" stroke="#ea580c" strokeWidth="2"/>
+                <rect x="10" y="36" width="36" height="7" rx="3.5" fill="#ea580c" opacity="0.13"/>
+                <g>
+                  <text x="50%" y="29" textAnchor="middle" fill="#b91c1c" fontSize="13" fontWeight="bold" fontFamily="Arial, sans-serif" letterSpacing="1">NEWS</text>
+                  <text x="50%" y="41" textAnchor="middle" fill="#78350f" fontSize="10" fontWeight="bold" fontFamily="Arial, sans-serif">Bihar 24/7</text>
+                </g>
+                <g>
+                  <rect x="16" y="10" width="24" height="5" rx="2.5" fill="#ea580c"/>
+                  <rect x="20" y="13" width="16" height="2" rx="1" fill="#fff"/>
+                  <circle cx="28" cy="10" r="2" fill="#fff"/>
+                </g>
+              </svg>
+            </div>
+            <div className="flex flex-col leading-tight ml-1">
+              <span className="text-xl sm:text-2xl font-black text-white tracking-tight drop-shadow-lg">
+                News Bihar 24/7
+              </span>
+              <span className="text-xs sm:text-sm font-semibold text-blue-100 tracking-wide">
+                {language === 'hindi' ? 'आपकी नज़र, हमारी खबर' : 'Voice of Bihar'}
+              </span>
+            </div>
+          </Link>
 
           {/* Desktop Navigation - Full Width with Scroll */}
           <div className="hidden md:flex flex-1 overflow-x-auto scrollbar-hide ml-6">
@@ -142,12 +155,12 @@ const englishMarqueeItems = [
                   key={index}
                   to={item.path}
                   className={`
-                    whitespace-nowrap transition-colors duration-300 px-1 pb-1 text-sm
+                    whitespace-nowrap transition-colors duration-300 px-1 pb-1 text-base font-semibold
                     flex-shrink-0 relative group
                     ${
                       location.pathname === item.path
-                        ? "text-yellow-300"
-                        : "text-white hover:text-yellow-300"
+                        ? "text-blue-100 underline underline-offset-4 decoration-blue-300 drop-shadow"
+                        : "text-white hover:text-blue-100 hover:underline hover:decoration-blue-200 hover:drop-shadow"
                     }
                   `}
                 >

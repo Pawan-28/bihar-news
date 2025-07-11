@@ -8,7 +8,7 @@ const NewsPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('https://harshit-backend-18mr.onrender.com/api/content/public')
+    fetch('http://localhost:5000/api/content/public')
       .then(res => res.json())
       .then(data => {
         const found = data.newsPosts?.find(a => a._id === id);

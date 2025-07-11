@@ -9,7 +9,7 @@ const Jharkhand = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await fetch('https://harshit-backend-18mr.onrender.com/api/content/public');
+        const response = await fetch('http://localhost:5000/api/content/public');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
         setContent(data);
@@ -54,8 +54,8 @@ const Jharkhand = () => {
     <div className="min-h-screen bg-gray-50 p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
       <div className="mb-6 text-center">
-          <span className="inline-block bg-green-50 text-green-800 text-lg md:text-xl font-semibold px-6 py-2 rounded-full shadow-sm border border-green-200 tracking-wide">
-            हर्षित के कलम से झारखंड समाचार पढ़िए
+          <span className="inline-block bg-gradient-to-r from-green-100 via-green-50 to-green-200 text-green-900 text-lg md:text-xl font-bold px-6 py-2 rounded-full shadow-md border border-green-100 tracking-wide">
+            झारखंड की ताज़ा और विश्वसनीय खबरें यहाँ पढ़ें
           </span>
         </div>
         {/* Crime News Section */}

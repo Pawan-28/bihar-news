@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_CONFIG = {
     development: {
-      baseUrl: 'https://harshit-backend-18mr.onrender.com'
+      baseUrl: 'http://localhost:5000'
     },
     production: {
       baseUrl: 'https://harshit-ke-kalam-se.onrender.com/'  // 🔁 yahi actual render URL daalo
